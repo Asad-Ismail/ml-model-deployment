@@ -3,3 +3,5 @@ model_weights/*
 **__MACOSX 
 **wandb/
 **output/
+**trained_model/
+**.swp
