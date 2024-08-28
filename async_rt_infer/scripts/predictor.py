@@ -8,7 +8,7 @@ import traceback
 from flask import Flask, request, Response
 import warnings
 import numpy as np
-from fruit_pred_utils import detectroninference, rle_encode
+from pred_utils import detectroninference, rle_encode
 
 # Suppress future warnings
 warnings.filterwarnings("ignore", message=r"Passing", category=FutureWarning)

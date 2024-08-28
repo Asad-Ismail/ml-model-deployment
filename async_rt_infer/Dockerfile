@@ -8,8 +8,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py && \
     python -m pip install pip==23.3.2 --no-cache-dir
 
-COPY ./lib /opt/program
-COPY ./scripts-segm /opt/program
+COPY ./scripts /opt/program
 
 # Set work directory and install Python dependencies
 WORKDIR /opt/program
@@ -21,11 +20,10 @@ ENV PYTHONUNBUFFERED=TRUE \
     PATH="/opt/program:${PATH}"
 
 # Install PyTorch and TorchVision specific versions
-RUN pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113 --no-cache-dir
+#RUN pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113 --no-cache-dir
 
 # Install Detectron2
-RUN python -m pip install -e detectron2 --no-cache-dir
+RUN python -m pip install git+https://github.com/facebookresearch/detectron2.git@bcfd464 --no-cache-dir
 
 # Ensure serve script is executable
 RUN chmod +x /opt/program/serve
-
