@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore", message=r"Passing", category=FutureWarning)
 # Model path
 prefix = '/opt/ml/model/'
 model_path = os.path.join(prefix, 'model_final.pth')
-cfg_path = os.path.join(prefix, 'model_final.yaml')
+cfg_path = os.path.join(prefix, 'pred_config.yaml')
 print(f"The Model Weights path exists? {os.path.exists(model_path)}")
 print(f"The Config path exists? {os.path.exists(cfg_path)}")
 

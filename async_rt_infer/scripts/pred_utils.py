@@ -16,7 +16,7 @@ from detectron2.structures import BoxMode
 
 # Detectron2 config put in a seperate module
 class detectroninference:
-    def __init__(self,model_path,config_file,num_cls=1,name_classes=["ballon"]):
+    def __init__(self,model_path,config_file,num_cls=1,name_classes=["balloon"]):
         self.cfg = get_cfg()
         self.cfg.set_new_allowed(True)
         assert (os.path.exists(config_file)),f"Config file {config_file} does not exist!!"
@@ -25,7 +25,7 @@ class detectroninference:
         self.cfg.MODEL.WEIGHTS = model_path
         self.cfg.SOLVER.IMS_PER_BATCH = 1 
         self.predictor = DefaultPredictor(self.cfg)
-        self.veg_metadata = MetadataCatalog.get("ballon").set(thing_classes=name_classes)
+        self.veg_metadata = MetadataCatalog.get("balloon").set(thing_classes=name_classes)
 
 
     
@@ -49,7 +49,6 @@ class detectroninference:
         #masks,patches=self.apply_mask(masks,orig_img)
         classes=outputs["instances"].pred_classes.to("cpu").numpy()
         boxes=(outputs["instances"].pred_boxes.to("cpu").tensor.numpy())
-        #return masks,boxes,classes
         return masks,boxes,classes,outputs["instances"].scores.to("cpu").numpy()
 
 def rle_encode(mask):
