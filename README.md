@@ -4,7 +4,8 @@ Machine learning model deployment using AWS SageMaker. This repository explores 
 Provides 
 
 See blog post here for more details also
-https://asad-ismail.github.io/posts/ml_deployment/
+[![Read Blog Post](https://img.shields.io/badge/Blog-Read%20Post-blue)](https://asad-ismail.github.io/posts/ml_deployment/)
+
 
 
 ## Features
